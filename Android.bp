@@ -1,0 +1,31 @@
+cc_library_shared {
+    name: "libjansson",
+
+    srcs: [
+        "src/dump.c",
+        "src/error.c",
+        "src/hashtable.c",
+        "src/hashtable_seed.c",
+        "src/load.c",
+        "src/memory.c",
+        "src/pack_unpack.c",
+        "src/strbuffer.c",
+        "src/strconv.c",
+        "src/utf.c",
+        "src/value.c",
+    ],
+
+    local_include_dirs: ["."] + [
+        "android",
+        "include",
+        "src",
+    ],
+    export_include_dirs: ["include"],
+
+    cflags: [
+        "-O3",
+        "-DHAVE_STDINT_H=1",
+	"-Wno-unused-function",
+    ],
+
+}
